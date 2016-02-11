@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'material',
+    'corsheaders',
     # 'material.admin',
     # 'bootstrap3',
     # 'crispy_forms',
@@ -50,6 +51,7 @@ INSTALLED_APPS = [
 MIDDLEWARE_CLASSES = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -58,6 +60,7 @@ MIDDLEWARE_CLASSES = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'users.disable.DisableCSRF',
 ]
+CORS_ORIGIN_WHITELIST = ('localhost:60094', '127.0.0.1:60094',)
 
 ROOT_URLCONF = 'hhliving.urls'
 
@@ -87,8 +90,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'hhliving',
-        'USER': 'hhadmin',
-        'PASSWORD': 'hhadmin',
+        'USER': 'krishna',
+        'PASSWORD': 'iiit123',
         'HOST': 'localhost',
         'PORT': '',
     }
@@ -145,7 +148,7 @@ REST_FRAMEWORK = {
     # Use Django's standard `django.contrib.auth` permissions,
     # or allow read-only access for unauthenticated users.
     'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+        #'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
     ]
 }
 
